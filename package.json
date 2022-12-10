@@ -1,0 +1,14 @@
+{
+  "name": "weatherproject",
+  "version": "1.0.0",
+  "description": "Project based on obtaining weather data on various cities.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Zain",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
