@@ -1,5 +1,6 @@
 const express = require("express");
 const https = require("https");
+require("dotenv").config();
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
@@ -9,9 +10,10 @@ app.get("/", (req, res) => {
 
 app.post("/", (req, res) => {
   const city = req.body.cityName;
-  const apiKey = "f375a208c4a71fd0ecac74723ad94d27";
+  // const apiKey = "f375a208c4a71fd0ecac74723ad94d27";
+  const api = process.env.API_KEY;
   const unit = "metric";
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api}&units=${unit}`;
 
   https.get(url, (response) => {
     console.log(response.statusCode);
@@ -32,6 +34,6 @@ app.post("/", (req, res) => {
   });
 });
 
-app.listen(3000, () => {
+app.listen(4000, () => {
   console.log("Server is successfully running at port 3000!");
 });
